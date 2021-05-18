@@ -1,0 +1,46 @@
+{
+  "name": "challenge-gamacademy",
+  "version": "0.0.1",
+  "description": "Desafio para o processo seletivo da Gama Academy",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start:dev": "tsnd --respawn ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sampaiorafael/challenge-gamaacademy.git"
+  },
+  "keywords": [
+    "challenge",
+    "desafio",
+    "gama",
+    "academy",
+    "gamaacademy"
+  ],
+  "author": "Rafael Sampaio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sampaiorafael/challenge-gamaacademy/issues"
+  },
+  "homepage": "https://github.com/sampaiorafael/challenge-gamaacademy#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "joi": "^17.4.0",
+    "mysql": "^2.18.1",
+    "typeorm": "^0.2.32"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.11",
+    "@types/helmet": "^4.0.0",
+    "@types/joi": "^17.2.3",
+    "@types/mysql": "^2.15.18",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  }
+}
