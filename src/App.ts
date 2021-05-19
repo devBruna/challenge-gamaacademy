@@ -34,7 +34,7 @@ class Server {
     }
 
     private async database (): Promise<any> {
-        //return await createConnection();
+        return await createConnection();
     }
 
 }
