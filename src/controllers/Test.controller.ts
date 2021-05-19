@@ -24,6 +24,23 @@ class TestController {
         return res.status(200).json({status: 'success', data: newTest})
     }
 
+    public findTestById: RequestHandler = async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
+        
+        let test;
+
+        try {
+            test = await TestService.findTestById(1)
+        } catch (err) {
+            return res.status(400).json({status: 'failed', msg: err})
+        }
+        
+        return res.status(200).json({status: 'success', data: test})
+    }
+
+    public findTestByTitle: RequestHandler = async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
+        return res.status(200).json({"lala": "lala"})
+    }
+
 }
 
 export default new TestController()
