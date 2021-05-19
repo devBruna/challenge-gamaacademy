@@ -1,6 +1,7 @@
 import { requestTestInputs, requestTestQuestionInput, requestQuestionChoiceInput } from '../types/test.types'
 import { TestsEntity } from '../entities/Tests.entity'
 import { TestQuestionsEntity } from '../entities/TestQuestions.entity'
+import { QuestionChoicesEntity } from '../entities/QuestionsChoices.entity'
 import QuestionRepository from '../repositories/Question.repository'
 import QuestionChoiceRepository from '../repositories/QuestionChoice.repository'
 import TestRepository from '../repositories/Test.repository'
@@ -26,7 +27,7 @@ class TestService {
             try {
                 newQuestion = await QuestionRepository.newTestQuestion({
                     ...question, 
-                    testId: newTest.id
+                    test: newTest
                 })
             } catch (err) {
                 throw err
@@ -41,7 +42,7 @@ class TestService {
                 try {
                     newChoice = await QuestionChoiceRepository.newQuestionChoice({
                         ...choice,
-                        questionId: newQuestion.id
+                        question: newQuestion
                     })
                 } catch (err) {
                     throw err
@@ -52,6 +53,14 @@ class TestService {
         });
 
         return data
+    }
+
+    public async findTestById(id: number): Promise<any> {
+        try {
+            return await TestRepository.findFullTestById(id)
+        } catch (err) {
+            throw err
+        }
     }
 
 }
