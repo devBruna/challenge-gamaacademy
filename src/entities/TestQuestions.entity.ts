@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import { TestsEntity } from './Tests.entity'
+import { QuestionChoicesEntity } from './QuestionsChoices.entity'
 @Entity({ name: 'questions' }) 
 export class TestQuestionsEntity {
     
@@ -15,7 +16,10 @@ export class TestQuestionsEntity {
     @Column({ type: 'int', precision: 3, unsigned: true }) 
     orderPosition: number
 
-    @Column({ name: 'test_id', type: 'int', unsigned: true }) 
-    testId: number
+    @ManyToOne(() => TestsEntity, test => test.questions)
+    test: TestsEntity
+
+    @OneToMany(() => QuestionChoicesEntity, choice => choice.question)
+    choices: QuestionChoicesEntity[]
 
 }

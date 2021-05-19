@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne} from 'typeorm';
+import { TestQuestionsEntity } from './TestQuestions.entity'
 @Entity({ name: 'questions_choices' }) 
 export class QuestionChoicesEntity {
     
@@ -12,7 +12,7 @@ export class QuestionChoicesEntity {
     @Column({ name: 'is_correct', type: 'int', precision: 1, unsigned: true }) 
     isCorrect: number
 
-    @Column({ name: 'question_id', type: 'int', unsigned: true }) 
-    questionId: number
+    @ManyToOne(() => TestQuestionsEntity, question => question.choices)
+    question: TestQuestionsEntity
 
 }
