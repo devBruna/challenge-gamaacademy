@@ -18,8 +18,12 @@ class TestService {
             throw err
         }
 
-        const questions = data.questions as Array<requestTestQuestionInput>
+        await this.createQuestions(data.questions as Array<requestTestQuestionInput>, newTest)
 
+        return newTest
+    }
+
+    public async createQuestions(questions: Array<requestTestQuestionInput>, newTest: TestsEntity) {
         questions.forEach( async (question) => {
 
             let newQuestion: TestQuestionsEntity
@@ -33,26 +37,22 @@ class TestService {
                 throw err
             }
 
-            const choices = question.choices as Array<requestQuestionChoiceInput>
-
-            choices.forEach( async (choice) => {
-
-                let newChoice;
-
-                try {
-                    newChoice = await QuestionChoiceRepository.newQuestionChoice({
-                        ...choice,
-                        question: newQuestion
-                    })
-                } catch (err) {
-                    throw err
-                }
-                
-            });
+            await this.createQuestionChoices(question.choices as Array<requestQuestionChoiceInput>, newQuestion)
 
         });
+    }
 
-        return data
+    public async createQuestionChoices(choices: Array<requestQuestionChoiceInput>, newQuestion: TestQuestionsEntity) {
+        choices.forEach( async (choice) => {
+            try {
+                await QuestionChoiceRepository.newQuestionChoice({
+                    ...choice,
+                    question: newQuestion
+                })
+            } catch (err) {
+                throw err
+            }
+        });
     }
 
     public async findTestById(id: number): Promise<any> {
