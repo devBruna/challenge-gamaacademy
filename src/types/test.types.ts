@@ -6,17 +6,17 @@ import { QuestionChoicesEntity } from '../entities/QuestionsChoices.entity'
 // Request Types
 export interface requestTestInputs {
     title: string,
-    questions: Array<requestTestQuestionInput>
+    questions: Array<requestTestQuestionInputs>
 }
 
-export interface requestTestQuestionInput {
+export interface requestTestQuestionInputs {
     title: string,
     description?: string,
     orderPosition: number,
-    choices?: Array<requestQuestionChoiceInput>
+    choices?: Array<requestQuestionChoiceInputs>
 }
 
-export interface requestQuestionChoiceInput {
+export interface requestQuestionChoiceInputs {
     text: string,
     isCorrect: number
 }
@@ -27,14 +27,14 @@ export interface createTestInputs {
     title: string,
 }
 
-export interface createTestQuestionInput {
+export interface createTestQuestionInputs {
     title: string,
     description?: string,
     orderPosition: number,
     test: TestsEntity
 }
 
-export interface createQuestionChoiceInput {
+export interface createQuestionChoiceInputs {
     text: string,
     isCorrect: number,
     question: TestQuestionsEntity

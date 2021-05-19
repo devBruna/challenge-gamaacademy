@@ -1,4 +1,4 @@
-import { requestTestInputs, requestTestQuestionInput, requestQuestionChoiceInput } from '../types/test.types'
+import { requestTestInputs, requestTestQuestionInputs, requestQuestionChoiceInputs } from '../types/test.types'
 import { TestsEntity } from '../entities/Tests.entity'
 import { TestQuestionsEntity } from '../entities/TestQuestions.entity'
 import { QuestionChoicesEntity } from '../entities/QuestionsChoices.entity'
@@ -18,12 +18,12 @@ class TestService {
             throw err
         }
 
-        await this.createQuestions(data.questions as Array<requestTestQuestionInput>, newTest)
+        await this.createQuestions(data.questions as Array<requestTestQuestionInputs>, newTest)
 
         return newTest
     }
 
-    public async createQuestions(questions: Array<requestTestQuestionInput>, newTest: TestsEntity) {
+    public async createQuestions(questions: Array<requestTestQuestionInputs>, newTest: TestsEntity) {
         questions.forEach( async (question) => {
 
             let newQuestion: TestQuestionsEntity
@@ -37,12 +37,12 @@ class TestService {
                 throw err
             }
 
-            await this.createQuestionChoices(question.choices as Array<requestQuestionChoiceInput>, newQuestion)
+            await this.createQuestionChoices(question.choices as Array<requestQuestionChoiceInputs>, newQuestion)
 
         });
     }
 
-    public async createQuestionChoices(choices: Array<requestQuestionChoiceInput>, newQuestion: TestQuestionsEntity) {
+    public async createQuestionChoices(choices: Array<requestQuestionChoiceInputs>, newQuestion: TestQuestionsEntity) {
         choices.forEach( async (choice) => {
             try {
                 await QuestionChoiceRepository.createQuestionChoice({
