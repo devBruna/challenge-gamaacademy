@@ -25,11 +25,17 @@
   },
   "homepage": "https://github.com/sampaiorafael/challenge-gamaacademy#readme",
   "dependencies": {
+    "@types/chai": "^4.2.18",
+    "@types/chai-http": "^4.2.0",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "joi": "^17.4.0",
+    "mocha": "^8.4.0",
     "mysql": "^2.18.1",
     "typeorm": "^0.2.32"
   },
