@@ -1,12 +1,12 @@
 import { EntityRepository, Repository, getRepository} from 'typeorm';
 
 import { QuestionChoicesEntity } from '../entities/QuestionsChoices.entity'
-import { createQuestionChoiceInput } from '../types/test.types'
+import { requestQuestionChoiceInput as createQuestionChoiceInput } from '../types/test.types'
 
 @EntityRepository(QuestionChoicesEntity)
 class QuestionChoicesRepository extends Repository<QuestionChoicesEntity> {
 
-    public async newQuestionChoice(data: createQuestionChoiceInput) {
+    public async newQuestionChoice(data: createQuestionChoiceInput): Promise<QuestionChoicesEntity> {
         try {
             return await getRepository(QuestionChoicesEntity).save(data)
         } catch (err) {
