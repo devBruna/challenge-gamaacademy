@@ -1,7 +1,7 @@
 import { EntityRepository, Repository, getRepository} from 'typeorm';
 
 import { TestsEntity } from '../entities/Tests.entity'
-import { requestTestInputs as createTestInputs } from '../types/test.types'
+import { createTestInputs } from '../types/test.types'
 
 @EntityRepository(TestsEntity)
 class TestsRepository extends Repository<TestsEntity> {
