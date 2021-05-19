@@ -1,18 +1,27 @@
 import { RequestHandler, Request, Response, NextFunction } from 'express';
 
+import TestService from '../services/Test.service'
 import CreateTestValidation from '../validation/CreateTest.validation'
-import { createTestInputs } from '../types/test.types'
+import { requestTestInputs } from '../types/test.types'
 
 class TestController {
 
     public createTest: RequestHandler =  async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
 
-        const { error, value } = CreateTestValidation.validate(req.body as createTestInputs)
+        const { error, value } = CreateTestValidation.validate(req.body as requestTestInputs)
 
         if (error) 
             return res.status(400).json({status: 'failed', msg: error})
+        
+        let newTest
 
-        return res.status(200).json({status: 'success', data: value})
+        try {
+            newTest = await TestService.createTest(value)
+        } catch (err) {
+            return res.status(400).json({status: 'failed', msg: err})
+        }
+
+        return res.status(200).json({status: 'success', data: newTest})
     }
 
 }
