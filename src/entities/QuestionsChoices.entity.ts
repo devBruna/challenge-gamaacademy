@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({ name: 'questions_choices' }) 
-export class QuestionChoiceEntity {
+export class QuestionChoicesEntity {
     
     @PrimaryGeneratedColumn({ type: 'int', unsigned: true })
     id: number
