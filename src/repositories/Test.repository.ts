@@ -8,7 +8,7 @@ import { createTestInputs } from '../types/test.types'
 @EntityRepository(TestsEntity)
 class TestsRepository extends Repository<TestsEntity> {
 
-    public async newTest(data: createTestInputs): Promise<TestsEntity> {
+    public async createTest(data: createTestInputs): Promise<TestsEntity> {
         try {
             return await getRepository(TestsEntity).save(data)
         } catch (err) {

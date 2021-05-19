@@ -8,12 +8,12 @@ import TestRepository from '../repositories/Test.repository'
 
 class TestService {
 
-    public async createTest(data: requestTestInputs): Promise<any> {
+    public async createNewFullTest(data: requestTestInputs): Promise<any> {
 
         let newTest: TestsEntity
 
         try {
-            newTest = await TestRepository.newTest({title: data.title})
+            newTest = await TestRepository.createTest({title: data.title})
         } catch (err) {
             throw err
         }
@@ -29,7 +29,7 @@ class TestService {
             let newQuestion: TestQuestionsEntity
 
             try {
-                newQuestion = await QuestionRepository.newTestQuestion({
+                newQuestion = await QuestionRepository.createTestQuestion({
                     ...question, 
                     test: newTest
                 })
@@ -45,7 +45,7 @@ class TestService {
     public async createQuestionChoices(choices: Array<requestQuestionChoiceInput>, newQuestion: TestQuestionsEntity) {
         choices.forEach( async (choice) => {
             try {
-                await QuestionChoiceRepository.newQuestionChoice({
+                await QuestionChoiceRepository.createQuestionChoice({
                     ...choice,
                     question: newQuestion
                 })

@@ -6,7 +6,7 @@ import { requestTestInputs } from '../types/test.types'
 
 class TestController {
 
-    public createTest: RequestHandler =  async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
+    public createNewFullTest: RequestHandler =  async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
 
         const { error, value } = CreateTestValidation.validate(req.body as requestTestInputs)
 
@@ -16,7 +16,7 @@ class TestController {
         let newTest
 
         try {
-            newTest = await TestService.createTest(value)
+            newTest = await TestService.createNewFullTest(value)
         } catch (err) {
             return res.status(400).json({status: 'failed', msg: err})
         }

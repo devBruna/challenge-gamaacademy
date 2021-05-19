@@ -6,7 +6,7 @@ import { createTestQuestionInput } from '../types/test.types'
 @EntityRepository(TestQuestionsEntity)
 class TestQuestionsRepository extends Repository<TestQuestionsEntity> {
 
-    public async newTestQuestion(data: createTestQuestionInput): Promise<TestQuestionsEntity> {
+    public async createTestQuestion(data: createTestQuestionInput): Promise<TestQuestionsEntity> {
         try {
             return await getRepository(TestQuestionsEntity).save(data)
         } catch (err) {
