@@ -1,3 +1,8 @@
+
+import { TestsEntity } from '../entities/Tests.entity'
+import { TestQuestionsEntity } from '../entities/TestQuestions.entity'
+import { QuestionChoicesEntity } from '../entities/QuestionsChoices.entity'
+
 // Request Types
 export interface requestTestInputs {
     title: string,
@@ -16,7 +21,7 @@ export interface requestQuestionChoiceInput {
     isCorrect: number
 }
 
-// SGBD Types
+// Create SGBD Types
 
 export interface createTestInputs {
     title: string,
@@ -26,12 +31,12 @@ export interface createTestQuestionInput {
     title: string,
     description?: string,
     orderPosition: number,
-    testId: number
+    test: TestsEntity
 }
 
 export interface createQuestionChoiceInput {
     text: string,
     isCorrect: number,
-    questionId: number
+    question: TestQuestionsEntity
 }
 
