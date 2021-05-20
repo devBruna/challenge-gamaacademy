@@ -42,6 +42,77 @@ npm run start
     - Descrição: Cria uma prova, suas questões e alternativas  
     - Requisitos: Objeto JSON no formato adequado
 
+>Exemplo de JSON para criação de uma prova completa (com questões e alternativas)
+
+
+<details>
+<summary>Exemplo</summary>
+<pre>
+{
+        "title": "Prova de matematica",
+        "questions": [
+            {
+                "title": "Resolva a soma",
+                "description": "4 + 4",
+                "orderPosition": 1,
+                "choices": [
+                    {
+                        "text": "7",
+                        "isCorrect": 0
+                    },
+                    {
+                        "text": "8",
+                        "isCorrect": 1
+                    },
+                    {
+                        "text": "12",
+                        "isCorrect": 0
+                    }
+                ]
+            },
+            {
+                "title": "Assinale a quantidade correta",
+                "description": "JC comprou 5 frutas e comeu 3, quantas restam?",
+                "orderPosition": 2,
+                "choices": [
+                    {
+                        "text": "3",
+                        "isCorrect": 0
+                    },
+                    {
+                        "text": "8",
+                        "isCorrect": 0
+                    },
+                    {
+                        "text": "2",
+                        "isCorrect": 1
+                    }
+                ]
+            },
+            {
+                "title": "Determine a idade de Ricardo?",
+                "description": "Sabendo que Ricardo tem metade da idade de seu irmao que tem 40 anos",
+                "orderPosition": 2,
+                "choices": [
+                    {
+                        "text": "20",
+                        "isCorrect": 1
+                    },
+                    {
+                        "text": "80",
+                        "isCorrect": 0
+                    },
+                    {
+                        "text": "60",
+                        "isCorrect": 0
+                    }
+                ]
+            }
+        ]
+}
+</pre>
+</details>
+
 ## Tecnologias :dart:
 
 - TypeScript
