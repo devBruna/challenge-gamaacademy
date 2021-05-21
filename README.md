@@ -5,36 +5,38 @@
 
 ## Como rodar o projeto
 
-Baixe o projeto do repositorio ou clone:  
+- Baixe o projeto do repositorio ou clone:  
 
 ```sh
 git clone https://github.com/sampaiorafael/challenge-gamaacademy.git
 ```  
 
-Instale as dependencias necessárias:  
+- Instale as dependencias necessárias:  
 
 ```sh
 npm install / npm install --include dev
 ```
 
-Certifique-se de criar a variavel de ambiente necessárias (.env.production) conforme o .env.example e possuir o database correspondente no seu SGBD
+>Certifique-se de criar a variavel de ambiente necessária (.env.production) conforme o .env.example, além de ligar seu SGBD e possuir o database correspondente.
 
-Mude a última linha do .env.production conforme 
-```TYPEORM_ENTITIES = dist/src/entities/**/*.js```
+- Mude a última linha do .env.production conforme abaixo  
+```sh
+TYPEORM_ENTITIES = dist/src/entities/**/*.js
+```
 
-Compile o typescript
+- Compile o typescript
 
 ```sh
 npm run build
 ```
 
-Inicie o servidor
+- Inicie o servidor
 
 ```sh
 npm run start
 ```
 
-Visite a rota /status, direto do navegador, para verificar o servidor
+>Visite a rota /status, direto do navegador, para verificar o servidor
 
 ## Rotas :arrows_counterclockwise:
 
