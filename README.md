@@ -31,9 +31,6 @@ Inicie o servidor
 npm run start
 ```
 
-
-## Features :heavy_check_mark:
-
 ## Rotas :arrows_counterclockwise:
 
 - GET /status
@@ -41,6 +38,9 @@ npm run start
 - POST /test
     - Descrição: Cria uma prova, suas questões e alternativas  
     - Requisitos: Objeto JSON no formato adequado
+- GET /test/id
+    - Descrição: Devolve uma prova criada anteriormente
+    - Requisitos: ID da prova (não das questões ou alternativas)
 
 >Exemplo de JSON para criação de uma prova completa (com questões e alternativas)
 
@@ -156,6 +156,12 @@ A modelagem de dados foi criada a partir dos cconceitos de relacionamento entre 
 ### Testes
 
 O sistema, incluindo as rotas, está coberto por testes unitário para garantir segurança e melhor integridade do código a cada feature
+
+- Teste da Rota GET /status
+- Teste da Rota POST /test
+- Teste da Rota GET /test/id
+
+> Os testes necessitam do SGBD para simular o ambiente de produção real, certifique-se de que ele está ativo, e tome cuidado, pois os testes que utilizam o SGBD o limpam apos o teste.
 
 ## Scripts :bookmark_tabs:
 
