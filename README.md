@@ -17,7 +17,10 @@ Instale as dependencias necessárias:
 npm install / npm install --include dev
 ```
 
-Certifique-se de criar as variaveis de ambiente necessárias conforme o .env.example e possuir o database correspondente no seu SGBD
+Certifique-se de criar a variavel de ambiente necessárias (.env.production) conforme o .env.example e possuir o database correspondente no seu SGBD
+
+Mude a última linha do .env.production conforme 
+```TYPEORM_ENTITIES = dist/src/entities/**/*.js```
 
 Compile o typescript
 
