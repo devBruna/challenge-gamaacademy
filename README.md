@@ -31,6 +31,8 @@ Inicie o servidor
 npm run start
 ```
 
+Visite a rota /status, direto do navegador, para verificar o servidor
+
 ## Rotas :arrows_counterclockwise:
 
 - GET /status
