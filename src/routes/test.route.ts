@@ -6,6 +6,6 @@ import TestController from '../controllers/Test.controller'
 const router = Router()
 
 router.post('/', TestController.createNewFullTest)
-router.get('/', TestController.findTestById)
+router.get('/:id([0-9]+)', TestController.findTestById)
 
 export default router

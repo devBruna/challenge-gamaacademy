@@ -16,9 +16,12 @@ class TestsRepository extends Repository<TestsEntity> {
         }
     }
 
-    public async findFullTestById(Reqid: number): Promise<TestsEntity> {
+    public async findFullTestById(Reqid: number): Promise<TestsEntity | undefined> {
         try {
-            return await getRepository(TestsEntity).findOneOrFail({ relations: ['questions', 'questions.choices']})
+            return await getRepository(TestsEntity).findOneOrFail({
+                relations: ['questions', 'questions.choices'],
+                where: {id: Reqid}
+            })
         } catch (err) {
             throw err.message
         }

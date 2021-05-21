@@ -29,7 +29,7 @@ class TestController {
         let test;
 
         try {
-            test = await TestService.findTestById(1)
+            test = await TestService.findTestById(+req.params.id)
         } catch (err) {
             return res.status(400).json({status: 'failed', msg: err})
         }
